@@ -1,0 +1,55 @@
+Slot Machine Game Pseudocode
+===========================
+
+1. Define constants for max lines, min/max bet, rows, columns, symbol counts, and symbol values.
+
+2. Define function: deposit()
+    - Ask user how much money to deposit
+    - Validate input (must be a positive number)
+    - Return deposit amount
+
+3. Define function: get_number_of_lines()
+    - Ask user how many lines to bet on (1 to MAX_LINES)
+    - Validate input
+    - Return number of lines
+
+4. Define function: get_bet()
+    - Ask user how much to bet per line (between MIN_BET and MAX_BET)
+    - Validate input
+    - Return bet amount
+
+5. Define function: get_slot_machine_spin(rows, cols, symbols)
+    - Create a list of all symbols based on their counts
+    - For each column:
+        - For each row in the column:
+            - Randomly pick a symbol from the list
+            - Remove that symbol from the list for this column
+            - Add symbol to the column
+    - Return all columns as the slot machine result
+
+6. Define function: print_slot_machine(columns)
+    - For each row:
+        - Print the symbol from each column in that row
+
+7. Define function: check_winnings(columns, lines, bet, values)
+    - For each line the user bet on:
+        - Check if all symbols in that line are the same
+        - If so, add winnings (symbol value * bet) and record the winning line
+    - Return total winnings and list of winning lines
+
+8. Define function: spin(balance)
+    - Ask user for number of lines and bet per line
+    - Check if user has enough balance
+    - Spin the slot machine
+    - Print the slot machine result
+    - Check winnings
+    - Print winnings and winning lines
+    - Return net change in balance (winnings - total bet)
+
+9. Main game loop:
+    - Ask user to deposit money
+    - While user does not quit:
+        - Print current balance
+        - Let user play a round (spin)
+        - Update balance
+    - Print final balance when user quits 
